@@ -1,0 +1,132 @@
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+###
+GET http://localhost:9876
+###
+POST http://localhost:9876/register
+Content-Type: application/json
+
+{
+    "username": "Ivan",
+    "password": "qwerty123"
+}
+###
+POST http://localhost:9876/login
+Content-Type: application/json
+
+{
+    "username": "Ivan",
+    "password": "qwerty123"
+}
+
+###
+
+POST http://localhost:9876/logout
+Content-Type: application/json
+
+###
+#creation du subreddit
+POST http://localhost:9876/subreddit/create-subreddit
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+Content-Type: application/json
+
+{
+  "name": "test_subreddit",
+  "description": "This is a test subreddit."
+}
+
+###
+GET http://localhost:9876/subreddit/get-subreddit/65bcac1314458cb63f2f10d3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+
+# modification du subreddit
+###
+PUT http://localhost:9876/subreddit/update-subreddit/65bcac1314458cb63f2f10d3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+{
+  "name": "new_subbredit_name",
+  "description": "new_description"
+}
+
+
+###
+# Création d'un post dans un subreddit spécifique
+POST http://localhost:9876/post/create-post/65bcac1314458cb63f2f10d3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+{
+  "title": "Titre du post",
+  "content": "Contenu du post"
+}
+
+###
+
+GET http://localhost:9876/post/get-post/65bcac4014458cb63f2f10d9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+Content-Type: application/json
+
+###
+
+GET http://localhost:9876/post/get-all-posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+Content-Type: application/json
+
+###
+# Ajouter un commentaire à un post
+POST http://localhost:9876/comment/create-comment/65bbf9a10add73c2a581f37b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+{
+  "content": "Ceci est un commentaire"
+}
+
+###
+GET http://localhost:9876/comment/65bbf9af0add73c2a581f380
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+
+###
+# Modifier un commentaire
+PUT http://localhost:9876/comment/edit-comment/65bbf9af0add73c2a581f380
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+{
+  "content": "Ce commentaire a ete modifie"
+}
+
+###
+# Supprimer un commentaire
+DELETE http://localhost:9876/comment/delete-comment/65bbf9af0add73c2a581f380
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+###
+# Modification d'un post par son auteur
+PUT http://localhost:9876/post/edit-post/65bbf9000add73c2a581f35c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+{
+  "title": "Titre modifié",
+  "content": "Contenu modifié"
+}
+
+
+###
+# Suppression d'un post par son auteur
+DELETE http://localhost:9876/post/delete-post/65bbf9000add73c2a581f35c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+
+###
+# Suppression d'un subreddit par un admin
+DELETE http://localhost:9876/subreddit/delete-subreddit/65bbf8e60add73c2a581f356
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjViYTMwNzIxNDg1ZDU5MjE2NzQ3ZjI4IiwiaWF0IjoxNzA2ODYzNTQ3LCJleHAiOjE3MDc0NjgzNDd9.aO-7n178nmz_1vRlKlBMGGxANniC9XktZqdiPL2bbEE
+
+###
+
